@@ -1,3 +1,15 @@
+
+## First package
+
+```bash
+mkdir ~/ros2_ws/src && cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_python --node-name my_node my_package
+cd ~/ros2_ws
+colcon build
+source install/local_setup.bash
+ros2 run my_package my_node
+```
+
 ## **What Is This?**
 
 This package contains the following ROS 2 nodes:
@@ -65,6 +77,7 @@ ros2 run demo_nodes_py add_two_ints_client
 # Open new terminal
 ros2 run demo_nodes_py add_two_ints_client_async
 ```
+
 ![](img/server_client.png)
 
 ### QoS Listener & Talker
@@ -82,7 +95,6 @@ ros2 run demo_nodes_py listener_qos
 ```
 
 ![](img/qos_listener_talker.png)
-
 
 ### Set Parameters Callback
 
@@ -148,6 +160,7 @@ When executed correctly, strings should be printed to the terminal similar to wh
 When executed correctly, strings should be printed to the terminal similar to what is shown below:
 
 #### Server
+
 ```bash
 # In terminal running add_two_ints_server
 [INFO] [1674553268.912391774] [add_two_ints_server]: Incoming request
@@ -155,12 +168,14 @@ a: 2 b: 3
 ```
 
 #### Client [Synchronous]
+
 ```bash
 # In terminal running add_two_ints_client
 [INFO] [1674553268.912602310] [add_two_ints_client]: Result of add_two_ints: 5
 ```
 
 #### Client [Asynchronous]
+
 ```bash
 # In terminal running add_two_ints_client_async
 [INFO] [1674553718.598690033] [add_two_ints_client]: Result of add_two_ints: 5
@@ -189,26 +204,39 @@ When executed correctly, strings should be printed to the terminal similar to wh
 ```
 
 ### Set Parameters Callback
+
 #### [Before]
+
 Run `ros2 param get /set_parameters_callback param1` should print the following to the terminal:
+
 ```bash
 Double value is: 0.0
 ```
+
 Run `ros2 param get /set_parameters_callback param2` should print the following to the terminal:
+
 ```bash
 Double value is 0.0
 ```
+
 #### [Change]
+
 Run `ros2 param set /set_parameters_callback param1 28.0` should print the following to the terminal:
+
 ```bash
 Set parameter successful
 ```
+
 #### [After]
+
 Run `ros2 param get /set_parameters_callback param1` should print the following to the terminal:
+
 ```bash
 Double value is: 28.0
 ```
+
 Run `ros2 param get /set_parameters_callback param2` should print the following to the terminal:
+
 ```bash
 Double value is 4.0
 ```
