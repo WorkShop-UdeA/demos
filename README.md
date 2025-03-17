@@ -2,7 +2,7 @@
 ## First package
 
 ```bash
-mkdir ~/ros2_ws/src && cd ~/ros2_ws/src
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_python --node-name my_node my_package
 cd ~/ros2_ws
 colcon build
